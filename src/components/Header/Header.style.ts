@@ -5,12 +5,12 @@ const Nav = styled.div({
   [mediaQueries.small]: {
     display: "flex",
     justifyContent: "center",
-    border: "2px solid yellow",
     padding: "1rem",
     position: "sticky",
     top: "0",
     zIndex: 1,
-    backdropFilter: "blur(10px)",
+    boxShadow:
+      "rgba(0, 0, 0, 0.07) 0px 0px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 5px 5px, rgba(0, 0, 0, 0.07) 0px 10px 11px",
   },
 });
 

@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
 import * as mediaQueries from "styles/media-queries";
-import * as colors from "styles/colors";
-
-//import * as colors from "styles/colors";
 
 /*type ContentProps = {
   urlimage?: string;
@@ -33,11 +30,18 @@ const Layout = styled.div({
   [mediaQueries.small]: {
     display: "flex",
     flexDirection: "column",
-    border: "2px solid red",
-    backgroundColor: colors.gray,
     height: "99vh",
-    overflow: "auto",
   },
 });
 
-export { Layout };
+const Body = styled.div({
+  [mediaQueries.small]: {
+    display: "flex",
+    flexDirection: "column",
+    overflow: "auto",
+    gap: "2rem",
+    padding: "2rem",
+  },
+});
+
+export { Layout, Body };

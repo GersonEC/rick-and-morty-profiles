@@ -60,4 +60,21 @@ const Info = styled.div({
   },
 });
 
-export { CardContainer, ImageContainer, InfoContainer, H3, H4, Info };
+const ModalContainer = styled.div({
+  [mediaQueries.small]: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "5rem",
+    border: "1px solid red",
+  },
+});
+
+export {
+  CardContainer,
+  ImageContainer,
+  ModalContainer,
+  InfoContainer,
+  H3,
+  H4,
+  Info,
+};

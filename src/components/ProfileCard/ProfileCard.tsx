@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import * as React from "react";
 import { ProfileModel } from "utils/models";
-import { Modal, Button } from "antd";
+import { Modal } from "antd";
 import "antd/dist/antd.css";
-
+import ProfileDetail from "components/ProfileDetail/ProfileDetail";
 import {
   CardContainer,
   ImageContainer,
@@ -12,7 +12,6 @@ import {
   H4,
   Info,
 } from "./ProfileCard.style";
-import ProfileDetail from "components/ProfileDetail/ProfileDetail";
 
 interface ProfileCardProps {
   profile: ProfileModel;
@@ -62,13 +61,27 @@ export default function ProfileCard(props: ProfileCardProps): JSX.Element {
       </CardContainer>
       <Modal
         bodyStyle={{
-          height: 500,
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          alignItems: "center",
+          height: 530,
+          overflow: "auto",
         }}
-        title={props.profile.name}
+        title={""}
         visible={isModalVisible}
         onCancel={onModalCancel}
         footer={[]}
       >
+        <img
+          css={{
+            borderRadius: "5rem",
+          }}
+          src={props.profile.image}
+          alt={props.profile.name}
+          title={props.profile.name}
+          width={80}
+        />
         <ProfileDetail profile={props.profile} />
       </Modal>
     </>

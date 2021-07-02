@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import * as mediaQueries from "styles/media-queries";
+import * as colors from "styles/colors";
 
 const CardContainer = styled.div({
   [mediaQueries.small]: {
@@ -11,6 +12,7 @@ const CardContainer = styled.div({
       cursor: "pointer",
       boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
       transition: "0.3s",
+      backgroundColor: colors.gray5,
     },
   },
 });

@@ -39,7 +39,6 @@ const Body = styled.div({
     display: "flex",
     flexDirection: "column",
     overflow: "auto",
-    gap: "2rem",
     padding: "2rem",
   },
 });

@@ -5,6 +5,8 @@ const Nav = styled.div({
   [mediaQueries.small]: {
     display: "flex",
     justifyContent: "center",
+    backgroundColor: "rgb(203,203,203)",
+    borderBlockEnd: "1px solid gray",
     padding: "1rem",
     position: "sticky",
     top: "0",

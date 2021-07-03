@@ -14,24 +14,22 @@ interface ProfileDetailProps {
 
 export default function ProfileDetail(props: ProfileDetailProps): JSX.Element {
   return (
-    <div>
-      <Collapse
-        bordered={false}
-        defaultActiveKey={[]}
-        expandIcon={({ isActive }) => (
-          <CaretRightOutlined rotate={isActive ? 90 : 0} />
-        )}
-      >
-        <PanelStyled header="Character's Information" key="1">
-          <p>{props.profile.name}</p>
-        </PanelStyled>
-        <PanelStyled header="Origin and Location" key="2">
-          <p>{text}</p>
-        </PanelStyled>
-        <PanelStyled header="Chapters" key="3">
-          <p>{text}</p>
-        </PanelStyled>
-      </Collapse>
-    </div>
+    <Collapse
+      bordered={false}
+      defaultActiveKey={[]}
+      expandIcon={({ isActive }) => (
+        <CaretRightOutlined rotate={isActive ? 90 : 0} />
+      )}
+    >
+      <PanelStyled header="Character's Information" key="1">
+        <p>{props.profile.name}</p>
+      </PanelStyled>
+      <PanelStyled header="Origin and Location" key="2">
+        <p>{text}</p>
+      </PanelStyled>
+      <PanelStyled header="Chapters" key="3">
+        <p>{text}</p>
+      </PanelStyled>
+    </Collapse>
   );
 }

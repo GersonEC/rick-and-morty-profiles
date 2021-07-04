@@ -1,14 +1,14 @@
+import * as React from "react";
+import { ProfileContext } from "components/contexts/ProfileContext";
 import ProfileCard from "components/ProfileCard/ProfileCard";
 import { ProfileModel } from "utils/models";
 import { ProfileListContainer } from "./ProfileList.style";
 
-interface ProfileListProps {
-  profileList: ProfileModel[];
-}
-export default function ProfileList(props: ProfileListProps): JSX.Element {
+export default function ProfileList(): JSX.Element {
+  const profileList = React.useContext(ProfileContext);
   return (
     <ProfileListContainer>
-      {props.profileList.map((item: ProfileModel) => {
+      {profileList.map((item: ProfileModel) => {
         return <ProfileCard key={item.id} profile={item} />;
       })}
     </ProfileListContainer>

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import * as React from "react";
 import { ProfileModel } from "utils/models";
 
-export const ProfileContext = createContext([] as ProfileModel[]);
+export const ProfileContext = React.createContext([] as ProfileModel[]);

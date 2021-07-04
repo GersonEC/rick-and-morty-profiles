@@ -1,11 +1,8 @@
-interface Origin {
+export interface Place {
   name: string;
-  url: string;
-}
-
-interface Location {
-  name: string;
-  url: string;
+  type: string;
+  dimension: string;
+  residents: string[];
 }
 
 export interface ProfileModel {
@@ -15,9 +12,22 @@ export interface ProfileModel {
   species: string;
   type: string;
   gender: string;
-  origin: Origin;
-  location: Location;
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
   image: string;
   episode: string[];
   created: string;
+}
+
+export interface ProfileApiInfo {
+  count: number;
+  next: string | null;
+  pages: number;
+  prev: string | null;
 }

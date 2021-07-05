@@ -27,7 +27,7 @@ export interface ProfileModel {
 
 export interface ProfileApiInfo {
   count: number;
-  next: string | null;
-  pages: number;
   prev: string | null;
+  pages: number;
+  next: string | null;
 }

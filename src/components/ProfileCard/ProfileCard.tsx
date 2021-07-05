@@ -15,75 +15,78 @@ import {
 
 interface ProfileCardProps {
   profile: ProfileModel;
+  ref?: React.Ref<any>;
 }
 
-export default function ProfileCard(props: ProfileCardProps): JSX.Element {
-  const [isModalVisible, setIsModalVisible] = React.useState(false);
+const ProfileCard: React.ForwardRefExoticComponent<ProfileCardProps> =
+  React.forwardRef((props: ProfileCardProps, ref: React.Ref<any>) => {
+    const [isModalVisible, setIsModalVisible] = React.useState(false);
+    const onCardClick = (): void => setIsModalVisible(!isModalVisible);
+    const onModalCancel = (): void => setIsModalVisible(false);
 
-  const onCardClick = (): void => setIsModalVisible(!isModalVisible);
-  const onModalCancel = (): void => setIsModalVisible(false);
-
-  return (
-    <>
-      <CardContainer onClick={onCardClick}>
-        <ImageContainer>
-          <img
-            css={[
-              {
-                border: "1px solid black",
-                borderRadius: "5rem",
-              },
-            ]}
-            src={props.profile.image}
-            width={110}
-            height={110}
-            alt={props.profile.name}
-          />
-        </ImageContainer>
-        <InfoContainer>
-          <Info>
-            <H3>Name:</H3>
-            <H4>{props.profile.name}</H4>
-          </Info>
-          <Info>
-            <H3>Status:</H3>
-            <H4>{props.profile.status}</H4>
-          </Info>
-          <Info>
-            <H3>Species:</H3>
-            <H4>{props.profile.species}</H4>
-          </Info>
-          <Info>
-            <H3>Gender:</H3>
-            <H4>{props.profile.gender}</H4>
-          </Info>
-        </InfoContainer>
-      </CardContainer>
-      <Modal
-        bodyStyle={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          alignItems: "center",
-          height: 530,
-          overflow: "auto",
-        }}
-        title={""}
-        visible={isModalVisible}
-        onCancel={onModalCancel}
-        footer={[]}
-      >
-        <img
-          css={{
-            borderRadius: "5rem",
+    return (
+      <div ref={ref}>
+        <CardContainer onClick={onCardClick}>
+          <ImageContainer>
+            <img
+              css={[
+                {
+                  border: "1px solid black",
+                  borderRadius: "5rem",
+                },
+              ]}
+              src={props.profile.image}
+              width={110}
+              height={110}
+              alt={props.profile.name}
+            />
+          </ImageContainer>
+          <InfoContainer>
+            <Info>
+              <H3>Name:</H3>
+              <H4>{props.profile.name}</H4>
+            </Info>
+            <Info>
+              <H3>Status:</H3>
+              <H4>{props.profile.status}</H4>
+            </Info>
+            <Info>
+              <H3>Species:</H3>
+              <H4>{props.profile.species}</H4>
+            </Info>
+            <Info>
+              <H3>Gender:</H3>
+              <H4>{props.profile.gender}</H4>
+            </Info>
+          </InfoContainer>
+        </CardContainer>
+        <Modal
+          bodyStyle={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            alignItems: "center",
+            height: 530,
+            overflow: "auto",
           }}
-          src={props.profile.image}
-          alt={props.profile.name}
-          title={props.profile.name}
-          width={80}
-        />
-        <ProfileDetail profile={props.profile} />
-      </Modal>
-    </>
-  );
-}
+          title={""}
+          visible={isModalVisible}
+          onCancel={onModalCancel}
+          footer={[]}
+        >
+          <img
+            css={{
+              borderRadius: "5rem",
+            }}
+            src={props.profile.image}
+            alt={props.profile.name}
+            title={props.profile.name}
+            width={80}
+          />
+          <ProfileDetail profile={props.profile} />
+        </Modal>
+      </div>
+    );
+  });
+
+export default ProfileCard;

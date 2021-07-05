@@ -2,11 +2,10 @@ import * as React from "react";
 import Header from "components/Header/Header";
 import { ProfileApiInfo, ProfileModel } from "utils/models";
 import { Layout, Body } from "./App.style";
-import "./App.css";
-import ProfileCard from "components/ProfileCard/ProfileCard";
+import ProfileList from "components/ProfileList/ProfileList";
 import { ProfileContext } from "contexts/ProfileContext";
 import useVisibility from "components/hooks/useVisibility";
-//IMPLEMENTARE INFINITE SCROLLING
+import "./App.css";
 //TESTARE APP:
 //-Voglio testare che all'inizio la lunghezza sia di 20
 //-Quando si va giù la lunghezza deve aumentare
@@ -64,21 +63,8 @@ function App(): JSX.Element {
       <Layout>
         <Header />
         <Body>
-          {/*<ProfileList />*/}
-          {profileList.map((item: ProfileModel) => {
-            return (
-              <ProfileCard
-                key={item.id}
-                profile={item}
-                ref={
-                  profileList[profileList.length - 1].id === item.id
-                    ? lastProfileCard
-                    : null
-                }
-              />
-            );
-          })}
-          <div>{loading && <h1>Loading</h1>}</div>
+          <ProfileList lastProfileCard={lastProfileCard} />
+          <div>{loading && <h3>Loading...</h3>}</div>
         </Body>
       </Layout>
     </ProfileContext.Provider>

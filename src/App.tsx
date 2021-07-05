@@ -15,7 +15,6 @@ import "./App.css";
 //Origin and Location e Chapters)
 //-Testare il contenuto di ogni Panel
 
-//Trasformare da Fetch a Axios
 function App(): JSX.Element {
   const [profileList, setProfileList] = React.useState<ProfileModel[]>(
     [] as ProfileModel[]

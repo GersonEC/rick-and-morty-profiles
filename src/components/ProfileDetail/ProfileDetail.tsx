@@ -56,6 +56,31 @@ export default function ProfileDetail(props: ProfileDetailProps): JSX.Element {
     });
   }, []);
 
+  const renderCharacterInfo = (profile: ProfileModel): JSX.Element => {
+    return (
+      <ul>
+        <li>Name: {profile.name}</li>
+        <li>Status: {profile.status}</li>
+        <li>Species: {profile.species}</li>
+        <li>Type: {profile.type}</li>
+        <li>Gender: {profile.gender}</li>
+      </ul>
+    );
+  };
+
+  const renderPlaceInfo = (place: Place): JSX.Element => {
+    return (
+      <ul>
+        <li>Name: {place.name}</li>
+        <li>Type: {place.type}</li>
+        <li>Dimension: {place.dimension}</li>
+        <li>
+          Amount of Residents: {place.residents && place.residents.length}
+        </li>
+      </ul>
+    );
+  };
+
   return (
     <Collapse
       bordered={false}
@@ -65,37 +90,16 @@ export default function ProfileDetail(props: ProfileDetailProps): JSX.Element {
       )}
     >
       <PanelStyled header="Character's Information" key="1">
-        <ul>
-          <li>Name: {props.profile.name}</li>
-          <li>Status: {props.profile.status}</li>
-          <li>Species: {props.profile.species}</li>
-          <li>Type: {props.profile.type}</li>
-          <li>Gender: {props.profile.gender}</li>
-        </ul>
+        {renderCharacterInfo(props.profile)}
       </PanelStyled>
       <PanelStyled header="Origin and Location" key="2">
         <h4>Origin</h4>
-        <ul>
-          <li>Name: {origin.name}</li>
-          <li>Type: {origin.type}</li>
-          <li>Dimension: {origin.dimension}</li>
-          <li>
-            Amount of Residents: {origin.residents && origin.residents.length}
-          </li>
-        </ul>
+        {renderPlaceInfo(origin)}
         <h3>Location</h3>
-        <ul>
-          <li>Name: {location.name}</li>
-          <li>Type: {location.type}</li>
-          <li>Dimension: {location.dimension}</li>
-          <li>
-            Amount of Residents:{" "}
-            {location.residents && location.residents.length}
-          </li>
-        </ul>
+        {renderPlaceInfo(location)}
       </PanelStyled>
       <PanelStyled header="Chapters" key="3">
-        {chapterNameList.map((chapterName, index) => {
+        {chapterNameList.sort().map((chapterName, index) => {
           return (
             <ul key={index} style={{ marginBottom: "0px" }}>
               <li>{chapterName}</li>

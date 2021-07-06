@@ -18,4 +18,15 @@ const Body = styled.div({
   },
 });
 
-export { Layout, Body };
+const LoaderContainer = styled.div({
+  [mediaQueries.small]: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "20vh",
+    margin: "2rem",
+    zIndex: 1,
+  },
+});
+
+export { Layout, Body, LoaderContainer };

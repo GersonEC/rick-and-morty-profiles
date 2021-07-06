@@ -13,15 +13,17 @@ export default function ProfileList(props: ProfileListProps): JSX.Element {
     <ProfileListContainer>
       {profileList.map((item: ProfileModel) => {
         return (
-          <ProfileCard
-            key={item.id}
-            profile={item}
-            ref={
-              profileList[profileList.length - 1].id === item.id
-                ? props.lastProfileCard
-                : null
-            }
-          />
+          <div role={"listitem"}>
+            <ProfileCard
+              key={item.id}
+              profile={item}
+              ref={
+                profileList[profileList.length - 1].id === item.id
+                  ? props.lastProfileCard
+                  : null
+              }
+            />
+          </div>
         );
       })}
     </ProfileListContainer>

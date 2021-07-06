@@ -101,7 +101,7 @@ export default function ProfileDetail(props: ProfileDetailProps): JSX.Element {
       <PanelStyled header="Chapters" key="3">
         {chapterNameList.sort().map((chapterName, index) => {
           return (
-            <ul key={index} style={{ marginBottom: "0px" }}>
+            <ul role={"listitem"} key={index} style={{ marginBottom: "0px" }}>
               <li>{chapterName}</li>
             </ul>
           );

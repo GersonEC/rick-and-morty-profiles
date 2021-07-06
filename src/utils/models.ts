@@ -31,3 +31,8 @@ export interface ProfileApiInfo {
   pages: number;
   next: string | null;
 }
+
+export interface ErrorModel {
+  hasError: boolean;
+  message: string;
+}

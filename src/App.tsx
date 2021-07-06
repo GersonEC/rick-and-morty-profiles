@@ -1,19 +1,15 @@
 import * as React from "react";
 import Header from "components/Header/Header";
 import { ProfileApiInfo, ProfileModel } from "utils/models";
-import { Layout, Body } from "./App.style";
+import { Layout, Body, LoaderContainer } from "./App.style";
 import ProfileList from "components/ProfileList/ProfileList";
 import { ProfileContext } from "contexts/ProfileContext";
 import useVisibility from "components/hooks/useVisibility";
+import { ErrorBoundary } from "react-error-boundary";
+import { Result, Button } from "antd";
+import { Spin } from "antd";
+import "antd/dist/antd.css";
 import "./App.css";
-//TESTARE APP:
-//-Voglio testare che all'inizio la lunghezza sia di 20
-//-Quando si va giù la lunghezza deve aumentare
-//-I campi sulla Card devono essere Name, Status, Specied e Gender.
-//-Ci deve essere un immagine sulla card
-//-Quando clicco la Card ci devono essere 3 panels (Character's Information,
-//Origin and Location e Chapters)
-//-Testare il contenuto di ogni Panel
 
 function App(): JSX.Element {
   const [profileList, setProfileList] = React.useState<ProfileModel[]>(
@@ -28,13 +24,14 @@ function App(): JSX.Element {
   const lastProfileCard = useVisibility(
     (visible: boolean) => {
       if (visible) {
+        setLoading(true);
         fetch(`${profileApiInfo.next}`)
           .then((response) => response.json())
           .then((data) => {
             const oldProfileList = [...profileList];
             const newProfileList = oldProfileList.concat(data.results);
             setProfileList(newProfileList);
-            setOffset(offset + data.results.length);
+            setOffset(data.results ? offset + data.results.length : offset);
           })
           .then(() => setLoading(false));
       }
@@ -50,22 +47,35 @@ function App(): JSX.Element {
         .then((data) => {
           setProfileList(data.results);
           setProfileApiInfo(data.info);
-          setOffset(data.results.length);
+          setOffset(data.results ? data.results.length : 0);
         })
         .then(() => setLoading(false));
     };
     getProfileList();
   }, []);
 
+  const ErrorFallback = () => {
+    return (
+      <Result
+        status="500"
+        title="500"
+        subTitle="Sorry, something went wrong."
+        extra={<Button type="primary">Back Home</Button>}
+      />
+    );
+  };
+
   return (
     <ProfileContext.Provider value={profileList}>
-      <Layout>
-        <Header />
-        <Body>
-          <ProfileList lastProfileCard={lastProfileCard} />
-          <div>{loading && <h3>Loading...</h3>}</div>
-        </Body>
-      </Layout>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Layout>
+          <Header />
+          <Body>
+            <ProfileList lastProfileCard={lastProfileCard} />
+            <LoaderContainer>{loading && <Spin />}</LoaderContainer>
+          </Body>
+        </Layout>
+      </ErrorBoundary>
     </ProfileContext.Provider>
   );
 }

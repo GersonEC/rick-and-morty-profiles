@@ -1,7 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import ProfileCard from "components/ProfileCard/ProfileCard";
-import { profileMock } from "utils/mocks";
+import ProfileList from "components/ProfileList/ProfileList";
+import { profileListMock } from "utils/mocks";
+import { ProfileContext } from "contexts/ProfileContext";
 
-test("render 20 rick and morty profiles", () => {
-  render(<ProfileCard profile={profileMock} />);
+test("render 2 rick and morty profiles", () => {
+  render(
+    <ProfileContext.Provider value={profileListMock}>
+      <ProfileList />{" "}
+    </ProfileContext.Provider>
+  );
+  const listItems = screen.getAllByRole("listitem");
+  expect(listItems).toHaveLength(2);
 });

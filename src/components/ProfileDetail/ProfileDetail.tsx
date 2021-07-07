@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Place, ProfileModel } from "utils/models";
+import { Place, ProfileModel } from "../../utils/models";
 import { Collapse } from "antd";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { PanelStyled } from "./ProfileDetail.style";

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { ProfileContext } from "contexts/ProfileContext";
-import ProfileCard from "components/ProfileCard/ProfileCard";
-import { ProfileModel } from "utils/models";
+import { ProfileContext } from "../../contexts/ProfileContext";
+import ProfileCard from "../ProfileCard/ProfileCard";
+import { ProfileModel } from "../../utils/models";
 import { ProfileListContainer } from "./ProfileList.style";
 
 interface ProfileListProps {
@@ -13,9 +13,8 @@ export default function ProfileList(props: ProfileListProps): JSX.Element {
     <ProfileListContainer>
       {profileList.map((item: ProfileModel) => {
         return (
-          <div role={"listitem"}>
+          <div role={"listitem"} key={item.id}>
             <ProfileCard
-              key={item.id}
               profile={item}
               ref={
                 profileList[profileList.length - 1].id === item.id

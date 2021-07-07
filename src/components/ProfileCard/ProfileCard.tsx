@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { ProfileModel } from "utils/models";
+import { ProfileModel } from "../../utils/models";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
-import ProfileDetail from "components/ProfileDetail/ProfileDetail";
+import ProfileDetail from "../../components/ProfileDetail/ProfileDetail";
 import {
   CardContainer,
   ImageContainer,

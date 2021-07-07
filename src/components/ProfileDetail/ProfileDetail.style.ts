@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import * as mediaQueries from "styles/media-queries";
+import * as mediaQueries from "../../styles/media-queries";
 import { Collapse } from "antd";
 const { Panel } = Collapse;
 

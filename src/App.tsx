@@ -1,10 +1,10 @@
 import * as React from "react";
-import Header from "components/Header/Header";
-import { ProfileApiInfo, ProfileModel } from "utils/models";
+import Header from "./components/Header/Header";
+import { ProfileApiInfo, ProfileModel } from "./utils/models";
 import { Layout, Body, LoaderContainer } from "./App.style";
-import ProfileList from "components/ProfileList/ProfileList";
-import { ProfileContext } from "contexts/ProfileContext";
-import useVisibility from "components/hooks/useVisibility";
+import ProfileList from "./components/ProfileList/ProfileList";
+import { ProfileContext } from "./contexts/ProfileContext";
+import useVisibility from "./components/hooks/useVisibility";
 import { ErrorBoundary } from "react-error-boundary";
 import { Result, Button } from "antd";
 import { Spin } from "antd";

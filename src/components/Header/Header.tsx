@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Nav } from "./Header.style";
-import RickAndMortyLogo from "assets/images/rick_and_morty_logo.svg";
+import RickAndMortyLogo from "../../assets/images/rick_and_morty_logo.svg";
 
 export default function Header(): JSX.Element {
   const onLogoClick = () => {

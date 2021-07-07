@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import * as mediaQueries from "styles/media-queries";
-import * as colors from "styles/colors";
+import * as mediaQueries from "../../styles/media-queries";
+import * as colors from "../../styles/colors";
 
 const CardContainer = styled.div({
   [mediaQueries.small]: {

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import * as mediaQueries from "../../styles/media-queries";
 
-const Nav = styled.div({
+const Nav = styled.header({
   [mediaQueries.small]: {
     display: "flex",
     justifyContent: "center",

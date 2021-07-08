@@ -4,14 +4,14 @@ import { ProfileApiInfo, ProfileModel } from "./utils/models";
 import { Layout, Body, LoaderContainer } from "./App.style";
 import ProfileList from "./components/ProfileList/ProfileList";
 import { ProfileContext } from "./contexts/ProfileContext";
-import useVisibility from "./components/hooks/useVisibility";
+import useVisibility from "./hooks/useVisibility";
 import { ErrorBoundary } from "react-error-boundary";
-import { Result, Button } from "antd";
 import { Spin } from "antd";
+import ErrorFallback from "components/ErrorFallback/ErrorFallback";
 import "antd/dist/antd.css";
 import "./App.css";
 
-function App(): JSX.Element {
+export default function App(): JSX.Element {
   const [profileList, setProfileList] = React.useState<ProfileModel[]>(
     [] as ProfileModel[]
   );
@@ -54,17 +54,6 @@ function App(): JSX.Element {
     getProfileList();
   }, []);
 
-  const ErrorFallback = () => {
-    return (
-      <Result
-        status="500"
-        title="500"
-        subTitle="Sorry, something went wrong."
-        extra={<Button type="primary">Back Home</Button>}
-      />
-    );
-  };
-
   return (
     <ProfileContext.Provider value={profileList}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -79,5 +68,3 @@ function App(): JSX.Element {
     </ProfileContext.Provider>
   );
 }
-
-export default App;

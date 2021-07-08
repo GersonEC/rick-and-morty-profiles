@@ -39,7 +39,7 @@ export default function ProfileDetail(props: ProfileDetailProps): JSX.Element {
   React.useEffect(() => {
     const chapterNameList: string[] = [];
     const episodeUrlList = props.profile.episode;
-    const setEpisodeName = (episodeUrl: string) => {
+    const setChapters = (episodeUrl: string) => {
       fetch(episodeUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -52,7 +52,7 @@ export default function ProfileDetail(props: ProfileDetailProps): JSX.Element {
         });
     };
     episodeUrlList.forEach((episodeUrl) => {
-      setEpisodeName(episodeUrl);
+      setChapters(episodeUrl);
     });
   }, []);
 

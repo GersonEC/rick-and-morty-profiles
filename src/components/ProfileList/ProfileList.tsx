@@ -7,6 +7,7 @@ import { ProfileListContainer } from "./ProfileList.style";
 interface ProfileListProps {
   lastProfileCard?: React.Ref<HTMLDivElement>;
 }
+
 export default function ProfileList(props: ProfileListProps): JSX.Element {
   const profileList = React.useContext(ProfileContext);
   return (

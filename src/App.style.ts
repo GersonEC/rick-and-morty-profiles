@@ -9,7 +9,7 @@ const Layout = styled.div({
   },
 });
 
-const Body = styled.div({
+const Body = styled.main({
   [mediaQueries.small]: {
     display: "flex",
     flexDirection: "column",

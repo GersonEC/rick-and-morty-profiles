@@ -32,6 +32,7 @@ export default function App(): JSX.Element {
             const newProfileList = oldProfileList.concat(data.results);
             setProfileList(newProfileList);
             setOffset(data.results ? offset + data.results.length : offset);
+            setProfileApiInfo(data.info);
           })
           .then(() => setLoading(false));
       }

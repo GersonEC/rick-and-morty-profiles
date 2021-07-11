@@ -27,6 +27,11 @@ const ImageContainer = styled.div({
 });
 
 const InfoContainer = styled.div({
+  display: "flex",
+  gap: "0.2rem",
+  flexDirection: "column",
+  minHeight: "10rem",
+  overflow: "auto",
   [mediaQueries.small]: {
     display: "flex",
     flexDirection: "column",
@@ -56,7 +61,7 @@ const Info = styled.div({
     display: "flex",
     gap: "0.5rem",
     alignItems: "center",
-    height: "4vh",
+    minHeight: "3vh",
   },
 });
 

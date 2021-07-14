@@ -62,8 +62,8 @@ export default function App(): JSX.Element {
           <Header />
           <Body>
             <ProfileList lastProfileCard={lastProfileCard} />
-            <LoaderContainer>{loading && <Spin />}</LoaderContainer>
           </Body>
+          <LoaderContainer>{loading && <Spin />}</LoaderContainer>
         </Layout>
       </ErrorBoundary>
     </ProfileContext.Provider>

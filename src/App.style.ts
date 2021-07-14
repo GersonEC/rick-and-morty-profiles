@@ -10,23 +10,22 @@ const Layout = styled.div({
 });
 
 const Body = styled.main({
+  display: "flex",
+  padding: "2rem",
+  overflow: "auto",
   [mediaQueries.small]: {
     display: "flex",
     flexDirection: "column",
-    overflow: "auto",
-    padding: "2rem",
   },
 });
 
 const LoaderContainer = styled.div({
-  [mediaQueries.small]: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "20vh",
-    margin: "2rem",
-    zIndex: 1,
-  },
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "20vh",
+  margin: "2rem",
+  zIndex: 1,
 });
 
 export { Layout, Body, LoaderContainer };
